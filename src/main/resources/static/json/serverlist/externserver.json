@@ -1,0 +1,10 @@
+{
+  "serverlist": {
+    "externserver": {
+      "@attributes": {
+        "address": "hplaptop:2102",
+        "name": "hplaptop"
+      }
+    }
+  }
+}

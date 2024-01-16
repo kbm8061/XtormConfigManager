@@ -1,0 +1,20 @@
+{
+  "localagents": {
+    "agent": {
+      "@attributes": {
+        "name": "COMM",
+        "type": "COMM",
+        "class": "com.windfire.agents.comm.asysAgentComm",
+        "opclass": "/servlet/asyservlets.asysOperComm",
+        "msgfile": "../../msg/comm.mc"
+      },
+      "sockets": {
+        "@attributes": {
+          "hostname": "127.0.0.1",
+          "port": "2102",
+          "clienttimeout": "0"
+        }
+      }
+    }
+  }
+}

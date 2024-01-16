@@ -1,0 +1,79 @@
+{
+  "localagents": {
+    "agent": {
+      "@attributes": {
+        "name": "DATA",
+        "type": "DATA",
+        "class": "com.windfire.agents.data.asysAgentData",
+        "msgfile": "../../msg/data.mc"
+      },
+      "dbpools": {
+        "pool": {
+          "@attributes": {
+            "name": "master",
+            "driver": "oracle.jdbc.driver.OracleDriver",
+            "connect": "jdbc:oracle:thin:@127.0.0.1:1522:orcl",
+            "dbtype": "2",
+            "user": "XTORM",
+            "pswd": "XTORM",
+            "count": "50",
+            "preconnect": "FALSE",
+            "unicode": "FALSE"
+          }
+        },
+        "startup": {
+          "@attributes": {
+            "mainpool": "master",
+            "locasysime": "GMT+09:00",
+            "retentionignore": "NO"
+          }
+        },
+        "listspooler": {
+          "@attributes": {
+            "listdir": "spool",
+            "memcache": "1024",
+            "timeout": "3600"
+          }
+        },
+        "physicalvolumemanager": {
+          "@attributes": {
+            "iteration": "43200",
+            "OnErrorReadOnly": "no"
+          }
+        },
+        "activemanager": {
+          "@attributes": {
+            "iteration": "600"
+          }
+        },
+        "checkquery": {
+          "@attributes": {
+            "CHECKQUERYENABLE": "true",
+            "CHECKQUERYTIMEOUT": "10",
+            "VALIDATIONINTERVAL": "300"
+          }
+        },
+        "defaultaudit": {
+          "@attributes": {
+            "agentserver": "",
+            "agentname": ""
+          }
+        },
+        "farm": {
+          "@attributes": {
+            "enabled": "false",
+            "ucode": "0",
+            "farmeid": "true"
+          },
+          "dserver": {
+            "@attributes": {
+              "address": "127.0.0.1",
+              "ucode": "1",
+              "port": "2102"
+            }
+          }
+        }
+      }
+    }
+  }
+}

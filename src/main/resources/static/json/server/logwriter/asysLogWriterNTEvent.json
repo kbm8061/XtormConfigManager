@@ -1,0 +1,15 @@
+{
+  "server": {
+    "logwriter": {
+      "@attributes": {
+        "class": "com.windfire.agents.asysLogWriterNTEvent"
+      },
+      "file": {
+        "@attributes": {
+          "name": "log/server.log",
+          "truncate": "false"
+        }
+      }
+    }
+  }
+}

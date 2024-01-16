@@ -1,0 +1,34 @@
+{
+  "server": {
+    "logwriter": {
+      "@attributes": {
+        "class": "com.windfire.agents.asysLogWriterFile",
+        "level": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "5"
+        ]
+      },
+      "file": {
+        "@attributes": {
+          "name": "/log/xtorm.log",
+          "truncate": "false",
+          "encoding": "UTF-8",
+          "dateformat": "yyyy-MM-dd 'at' HH:mm:ss",
+          "tmode": [
+            "1",
+            "2"
+          ],
+          "tparam": [
+            "10000",
+            "monthly",
+            "weekly",
+            "daily"
+          ]
+        }
+      }
+    }
+  }
+}

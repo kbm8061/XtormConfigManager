@@ -1,0 +1,16 @@
+{
+  "server": {
+    "logwriter": {
+      "@attributes": {
+        "class": "com.windfire.agents.asysLogWriterLog4j",
+        "level": "5"
+      },
+      "property": {
+        "@attributes": {
+          "name": "log4j2.xml",
+          "section": "main"
+        }
+      }
+    }
+  }
+}

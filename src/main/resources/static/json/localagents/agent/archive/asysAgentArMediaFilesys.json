@@ -1,0 +1,35 @@
+{
+  "localagents": {
+    "agent": {
+      "@attributes": {
+        "name": "MAIN_ARC",
+        "type": "ARCHIVE",
+        "desc": "Main Archive",
+        "class": "com.windfire.agents.archive.asysAgentArchive",
+        "opclass": "/servlet/asyservlets.asysOperArchive",
+        "msgfile": "../../msg/archive.mc"
+      },
+      "scheduler": {
+        "@attributes": {
+          "class": "com.windfire.agents.archive.asysAgentArSchedFifo"
+        },
+        "deviceIF": {
+          "@attributes": {
+            "class": "com.windfire.agents.archive.asysAgentArDeviceFilesys",
+            "basedir": "",
+            "hashdirs": "100",
+            "dateformat": "yyyyMMdd",
+            "filesystemclass": "com.windfire.agents.archive.asysFileSystemShell",
+            "filesystemkb": "true"
+          }
+        },
+        "threadpool": {
+          "@attributes": {
+            "ops": "read,write,delete",
+            "count": "20"
+          }
+        }
+      }
+    }
+  }
+}

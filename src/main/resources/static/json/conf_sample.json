@@ -1,0 +1,145 @@
+{
+  "xvarm": {
+    "server": {
+      "@attributes": {
+        "keepperfstats": "false",
+        "basemsg": "../../msg/base.mc"
+      },
+      "logwriter": {
+        "@attributes": {
+          "class": "com.windfire.agents.asysLogWriterLog4j",
+          "level": "5"
+        },
+        "property": {
+          "@attributes": {
+            "name": "log4j2.xml",
+            "section": "main"
+          }
+        }
+      }
+    },
+    "localagents": {
+      "@attributes": {
+        "machineid": "0"
+      },
+      "agent": [
+        {
+          "@attributes": {
+            "name": "COMM",
+            "type": "COMM",
+            "class": "com.windfire.agents.comm.asysAgentComm",
+            "opclass": "/servlet/asyservlets.asysOperComm",
+            "msgfile": "../../msg/comm.mc"
+          },
+          "sockets": {
+            "@attributes": {
+              "hostname": "127.0.0.1",
+              "port": "2102",
+              "clienttimeout": "0"
+            }
+          }
+        },
+        {
+          "@attributes": {
+            "name": "MAIN_ARC",
+            "type": "ARCHIVE",
+            "desc": "Main Archive",
+            "class": "com.windfire.agents.archive.asysAgentArchive",
+            "opclass": "/servlet/asyservlets.asysOperArchive",
+            "msgfile": "../../msg/archive.mc"
+          },
+          "scheduler": {
+            "@attributes": {
+              "class": "com.windfire.agents.archive.asysAgentArSchedFifo"
+            },
+            "deviceIF": {
+              "@attributes": {
+                "class": "com.windfire.agents.archive.asysAgentArMediaFilesys",
+                "basedir": "",
+                "hashdirs": "100",
+                "dateformat": "yyyyMMdd",
+                "filesystemclass": "com.windfire.agents.archive.asysFileSystemShell",
+                "filesystemkb": "true"
+              }
+            },
+            "threadpool": {
+              "@attributes": {
+                "ops": "read,write,delete",
+                "count": "20"
+              }
+            }
+          }
+        },
+        {
+          "@attributes": {
+            "name": "DATA",
+            "type": "DATA",
+            "class": "com.windfire.agents.data.asysAgentData",
+            "msgfile": "../../msg/data.mc"
+          },
+          "dbpools": {
+            "pool": {
+              "@attributes": {
+                "name": "master",
+                "driver": "oracle.jdbc.driver.OracleDriver",
+                "connect": "jdbc:oracle:thin:@127.0.0.1:1522:orcl",
+                "dbtype": "2",
+                "user": "XTORM",
+                "pswd": "XTORM",
+                "count": "50",
+                "preconnect": "FALSE",
+                "unicode": "FALSE"
+              }
+            }
+          },
+          "startup": {
+            "@attributes": {
+              "mainpool": "master",
+              "locasysime": "GMT+09:00",
+              "retentionignore": "NO"
+            }
+          },
+          "listspooler": {
+            "@attributes": {
+              "listdir": "spool",
+              "memcache": "1024",
+              "timeout": "3600"
+            }
+          },
+          "physicalvolumemanager": {
+            "@attributes": {
+              "iteration": "43200",
+              "OnErrorReadOnly": "no"
+            }
+          },
+          "activemanager": {
+            "@attributes": {
+              "iteration": "600"
+            }
+          },
+          "checkquery": {
+            "@attributes": {
+              "CHECKQUERYENABLE": "true",
+              "CHECKQUERYTIMEOUT": "10",
+              "VALIDATIONINTERVAL": "300"
+            }
+          },
+          "defaultaudit": {
+            "@attributes": {
+              "agentserver": "",
+              "agentname": ""
+            }
+          }
+        }
+      ]
+    },
+    "serverlist": {
+      "externserver": {
+        "@attributes": {
+          "address": "hplaptop:2102",
+          "name": "hplaptop"
+        }
+      }
+    }
+  }
+}

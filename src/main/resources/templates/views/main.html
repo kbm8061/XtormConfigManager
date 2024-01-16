@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport">
+    <meta content="#ffffff" name="theme-color">
+
+    <title>Xtorm Config Manager</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+    <link href="/css/common/common.css" rel="stylesheet" type="text/css">
+
+    <script crossorigin="anonymous" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/ca032c8eac.js"></script>
+    <script src="/js/common/common.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="navbar navbar-light">
+        <div class="navbar-nav">
+            <div class="nav-item">
+                <a class="btn mx-1" th:href="@{/}">
+<!--                    <img class="main-logo" alt="logo" th:src="@{/img/logo.gif}" />-->
+                    <span class="main-logo">LOGO</span>
+                </a>
+            </div>
+        </div>
+        <div class="navbar-brand mx-auto">
+            <div class="main-title">Xtorm Config Manager</div>
+        </div>
+        <div class="navbar-nav">
+            <div class="d-flex">
+                <div class="nav-item navbar-user">
+                    <a class="btn mx-1" href="#" id="btn-navbar-user">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 my-1" id="layout-file-upload">
+            <div class="input-group input-group-sm my-1">
+                <input type="file" class="form-control" id="input-conf-file" aria-describedby="input-conf-file-add" accept=".xml">
+                <button class="btn btn-outline-dark" type="button" id="input-conf-file-add">불러오기</button>
+            </div>
+
+            <div class="input-group input-group-sm my-1">
+                <span class="input-group-text w-10">sample</span>
+
+                <select class="form-select" id="select-sample">
+                    <option value="conf_sample">conf_sample</option>
+                </select>
+
+                <button type="button" class="btn btn-outline-dark" id="btn-add-sample"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <div class="input-group input-group-sm my-1">
+                <span class="input-group-text w-10">logwriter</span>
+
+                <select class="form-select" id="select-server-logwriter">
+                    <option value="server/logwriter/asysLogWriterFile">asysLogWriterFile</option>
+                    <option value="server/logwriter/asysLogWriterLog4j">asysLogWriterLog4j</option>
+                    <option value="server/logwriter/asysLogWriterConsole">asysLogWriterConsole</option>
+                    <option value="server/logwriter/asysLogWriterNTEvent">asysLogWriterNTEvent</option>
+                </select>
+
+                <button type="button" class="btn btn-outline-dark" id="btn-add-logwriter"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <div class="input-group input-group-sm my-1">
+                <span class="input-group-text w-10">agent</span>
+
+                <select class="form-select" id="select-localagents-agent">
+                    <option value="localagents/agent/comm">comm</option>
+                    <option value="localagents/agent/data">data</option>
+                    <option value="localagents/agent/archive/asysAgentArMediaFilesys">archive/asysAgentArMediaFilesys</option>
+                </select>
+
+                <button type="button" class="btn btn-outline-dark" id="btn-add-agent"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <div class="input-group input-group-sm my-1">
+                <span class="input-group-text w-10">externserver</span>
+
+                <select class="form-select" id="select-serverlist-externserver">
+                    <option value="serverlist/externserver">externserver</option>
+                </select>
+
+                <button type="button" class="btn btn-outline-dark" id="btn-add-externserver"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="col-12 my-1" id="area-xvarm"></div>
+    </div>
+</div>
+</body>
+</html>

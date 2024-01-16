@@ -1,0 +1,9 @@
+{
+  "server": {
+    "logwriter": {
+      "@attributes": {
+        "class": "com.windfire.agents.asysLogWriterConsole"
+      }
+    }
+  }
+}
