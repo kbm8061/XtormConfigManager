@@ -1,16 +1,14 @@
 $(document).ready(function () {
-    $(document).on('click', '#input-conf-file-add', function () {
-        let fileReader = new FileReader();
+    $(document).on('click', '#input-conf-file-add', function() {
         let fileInput = document.getElementById('input-conf-file');
 
-        fileReader.onload = function(event) {
-            let xmlData = event.target.result;
-            let jsonData = parseXml(xmlData);
-
-            createCard(jsonData);
-        };
-
         if (fileInput.files[0]) {
+            let fileReader = new FileReader();
+            fileReader.onload = function(event) {
+                let xmlData = event.target.result;
+                let jsonData = parseXml(xmlData);
+                createCard(jsonData);
+            };
             fileReader.readAsText(fileInput.files[0]);
         } else {
             alert('파일을 선택해주세요.');
