@@ -196,7 +196,7 @@ $(document).ready(function () {
 
     function xmlToJson(xml) {
         let obj = {};
-        if (xml.nodeType == 1) {
+        if (xml.nodeType === 1) {
             if (xml.attributes.length > 0) {
                 obj["@attributes"] = {};
                 for (let j = 0; j < xml.attributes.length; j++) {
@@ -204,7 +204,7 @@ $(document).ready(function () {
                     obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
                 }
             }
-        } else if (xml.nodeType == 3) {
+        } else if (xml.nodeType === 3) {
             obj = xml.nodeValue.trim();
         }
 
